@@ -93,7 +93,7 @@
             <h2 class="mt-5 border-2 border-bottom">Instructions</h2>
             <p>
               Enter a starting value and an ending value. Press the button and
-              the values will appear.
+              the values will appear. <strong>Both values need to be above or equal to zero</strong>.
             </p>
           </div>
           <div class="col col-lg-8">
@@ -208,5 +208,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/site.js"></script>
+    <script>
+     document.querySelector('#btnSubmit').addEventListener('click', getValues);
+    </script>
   </body>
 </html>
