@@ -1,17 +1,32 @@
 // get values from the UI
 // start or controller function
 function getValues() {
-    // get values from UI
     let startValue = Number(document.querySelector('#startValue').value);
     let endValue = Number(document.querySelector('#endValue').value);
 
-    // call generateNumbers()
-    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+    if (validateValues(startValue, endValue)) {
+        // call generateNumbers()
         let numbers = generateNumbers(startValue, endValue);
+
+        // call displayNumbers()
         displayNumbers(numbers);
     } else {
+        // clean results if incorrect values entered
+        document.querySelector('#results').innerHTML = "";
+    }
+}
+
+// validate input values
+function validateValues(startValue, endValue) {
+    if (Number.isNaN(startValue) || Number.isNaN(endValue)) {
         alert('You must enter a number');
     }
+
+    if (startValue > endValue) {
+        alert('Starting Value has to be greater than or equal to Ending Value');
+    }
+
+    return true;
 }
 
 // generate numbers from startValue to endValue
@@ -42,4 +57,3 @@ function displayNumbers(numbers) {
 
     document.querySelector('#results').innerHTML = templateRows;
 }
-
