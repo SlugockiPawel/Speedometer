@@ -1,8 +1,8 @@
 // get values from the UI
 // start or controller function
 function getValues() {
-    let startValue = Number(document.querySelector('#startValue').value);
-    let endValue = Number(document.querySelector('#endValue').value);
+    let startValue = document.querySelector('#startValue').value;
+    let endValue = document.querySelector('#endValue').value;
 
     if (validateValues(startValue, endValue)) {
         // call generateNumbers()
@@ -18,10 +18,12 @@ function getValues() {
 
 // validate input values
 function validateValues(startValue, endValue) {
+    // validate if input values are type of numbers
     if (Number.isNaN(startValue) || Number.isNaN(endValue)) {
         alert('You must enter a number');
     }
 
+    // validate if ending value is greater than or equal to starting value
     if (startValue > endValue) {
         alert('Starting Value has to be greater than or equal to Ending Value');
     }

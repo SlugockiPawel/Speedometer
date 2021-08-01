@@ -24,7 +24,7 @@
 
     <link href="./css/prism.css" rel="stylesheet" />
     <link href="./css/site.css" rel="stylesheet" />
-   
+
     <link rel="icon" type="image/png" href="img/favicon_io/favicon-32x32.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -84,22 +84,113 @@
     <!-- main section -->
     <main class="flex-shrink-0">
       <div class="container py-5 px-5 mt-5">
-          <h2 class="border-1 border-bottom border-dark">The Code For Speedometer</h2>
-          <div class="row row-cols-1 row-cols-md-2">
-              <div class="col-lg-8">
-                  <pre class="line-numbers"><code class="language-javascript">
-                    //Call HelloWorld
-                    function HelloWorld() {
-                        alert('Hello World');
+        <h2 class="border-1 border-bottom border-dark">
+          The Code For Speedometer
+        </h2>
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col-lg-8">
+            <pre class="line-numbers"><code class="language-javascript">
+                    // get values from the UI
+                    // start or controller function
+                    function getValues() {
+                        let startValue = document.querySelector('#startValue').value;
+                        let endValue = document.querySelector('#endValue').value;
+                    
+                        if (validateValues(startValue, endValue)) {
+                            // call generateNumbers()
+                            let numbers = generateNumbers(startValue, endValue);
+                    
+                            // call displayNumbers()
+                            displayNumbers(numbers);
+                        } else {
+                            // clean results if incorrect values entered
+                            document.querySelector('#results').innerHTML = "";
+                        }
+                    }
+                    
+                    // validate input values
+                    function validateValues(startValue, endValue) {
+                        // validate if input values are type of numbers
+                        if (Number.isNaN(startValue) || Number.isNaN(endValue)) {
+                            alert('You must enter a number');
+                        }
+                    
+                        // validate if ending value is greater than or equal to starting value
+                        if (startValue > endValue) {
+                            alert('Starting Value has to be greater than or equal to Ending Value');
+                        }
+                    
+                        return true;
+                    }
+                    
+                    // generate numbers from startValue to endValue
+                    // logic function(s)
+                    function generateNumbers(startValue, endValue) {
+                        let numbers = [];
+                    
+                        // get all numbers from startValue till endValue
+                        for (let i = startValue; i <= endValue; i++) {
+                            numbers.push(i);
+                        }
+                    
+                        return numbers;
+                    }
+                    
+                    // display values to the UI
+                    // display or view function(s)
+                    function displayNumbers(numbers) {
+                        let templateRows = "";
+                    
+                        for (let number of numbers) {
+                            if (number % 2 === 0) {
+                                templateRows += `&lt;tr>&lt;td>&lt;strong>${number}&lt;/strong>&lt;/td>&lt;/tr>`;
+                            } else {
+                                templateRows += `&lt;tr>&lt;td>${number}&lt;/td>&lt;/tr>`;
+                            }
+                        }
+                    
+                        document.querySelector('#results').innerHTML = templateRows;
                     }
                   </code></pre>
-              </div>
-              <div class="col-lg-4">
-                <p>The Code is structured in one function.</p>
-                <h5>Hello World</h5>
-                <p>Hello World is a function that displays am alert with a message of 'Hello World'</p>
-              </div>
           </div>
+          <div class="col-lg-4">
+            <p>The Code is structured in one function.</p>
+            <h5>getValues()</h5>
+            <p>
+              It is a controller function- its purpose is to get the
+              values from UI form and perform further logic. Values are pulled
+              from the page using querySelector method within document object
+              (it is part of DOM manipulation).
+            </p>
+            <p>
+              Once values are pulled from the UI, they are passed to the
+              validateValues method as parameters. If validation is successful,
+              starting value and ending value are passed to generateNumbers
+              method. Once numbers are generated, they are displayed on the page.
+            </p>
+            <h5 class="mt-4">validateValues()</h5>
+            <p>
+              This function performs boolean logic to check if user
+              input(starting value and ending value) are number types. Also, it
+              checks if ending value is greater than or equal to
+              starting value (edge case that can crash our application).
+            </p>
+            <p>
+              If any of these checks fail, the end user will be notified with
+              meaningful message, so the input can be corrected.
+            </p>
+            <h5 class="mt-4">generateNumbers()</h5>
+            <p>
+              This function uses for loop to populate and return an array that spans from starting value to ending value.
+              The returned array is passed as a parameter to displayNumbers() function.
+            </p>
+            <h5 class="mt-4">displayNumbers()</h5>
+            <p>
+              This function uses for-of loop to inject HTML table row tag to the .html file so it is visible by the end user directly on the page.
+              Boolean logic is used to make number bold in case it(the number itself) is even.
+            </p>
+          </div>
+        </div>
       </div>
     </main>
     <!-- footer section -->
