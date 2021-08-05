@@ -25,7 +25,7 @@ function validateValues(startValue, endValue) {
 
     // validate if ending value is greater than or equal to starting value
     if (startValue > endValue) {
-        alert('Starting Value has to be greater than or equal to Ending Value');
+        alert('Ending Value has to be greater than or equal to Starting Value');
     }
 
     return true;

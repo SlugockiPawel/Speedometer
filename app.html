@@ -84,16 +84,24 @@
       <div class="container mt-3">
         <div class="row row-cols-1 row-cols-lg-2">
           <div class="col col-lg-4 border-end border-2 text-wrap text-break">
-            <h1>Speedometer:<br> A Coding Project</h1>
+            <h1>
+              Speedometer:<br />
+              A Coding Project
+            </h1>
             <h4 class="lead">
               Plenty of loops- just one at a time! A Javascript coding exercise
-              using loops. The program displays the numbers from 0 to 100. Every
+              using loops. The program displays the numbers in the range based
+              on user input. Every
               <strong>even</strong> number is displayed <strong>BOLD</strong>.
             </h4>
             <h2 class="mt-5 border-2 border-bottom">Instructions</h2>
             <p>
               Enter a starting value and an ending value. Press the button and
-              the values will appear. <strong>Starting value has to be greater or equal to ending value</strong>.
+              the values will appear.
+              <strong
+                >Ending value has to be greater or equal to starting
+                value</strong
+              >.
             </p>
           </div>
           <div class="col col-lg-8">
@@ -110,32 +118,33 @@
                     aria-label="Start Value"
                   />
                 </div>
-
                 <div class="col">
-                  <div class="col">
-                    <input
-                      id="endValue"
-                      type="number"
-                      class="form-control"
-                      placeholder="End Value"
-                      value="100"
-                      aria-label="End Value"
-                    />
-                  </div>
+                  <input
+                    id="endValue"
+                    type="number"
+                    class="form-control"
+                    placeholder="End Value"
+                    value="100"
+                    aria-label="End Value"
+                  />
                 </div>
                 <div class="col-12 d-flex justify-content-sm-end">
-                  <button id="btnSubmit" type="button" class="btn btn-dark btn-lg mt-1 mb-1">
+                  <button
+                    id="btnSubmit"
+                    type="button"
+                    class="btn btn-dark btn-lg mt-1 mb-1"
+                  >
                     Display the Speedometer
                   </button>
                 </div>
               </form>
               <h2 class="mt-5 border-bottom border-2">Results</h2>
               <div class="table-responsive">
-                  <table class="table table-striped table-sm">
-                      <tbody id="results">
-                        <!-- Results here -->
-                      </tbody>
-                  </table>
+                <table class="table table-striped table-sm">
+                  <tbody id="results">
+                    <!-- Results here -->
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -146,7 +155,15 @@
     <footer class="footer mt-auto py-3 sticky-footer gy-2">
       <div class="container-fluid">
         <div class="row row-cols-1 row-cols-lg-3">
-          <div class="col order-last order-lg-first text-light d-flex align-items-center">
+          <div
+            class="
+              col
+              order-last order-lg-first
+              text-light
+              d-flex
+              align-items-center
+            "
+          >
             <div>
               <span class="text-muted">&copy;2021</span> Pawel Slugocki |
               slugocki.pawel@gmail.com
@@ -209,7 +226,7 @@
     ></script>
     <script src="./js/site.js"></script>
     <script>
-     document.querySelector('#btnSubmit').addEventListener('click', getValues);
+      document.querySelector("#btnSubmit").addEventListener("click", getValues);
     </script>
   </body>
 </html>
